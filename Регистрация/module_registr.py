@@ -77,7 +77,21 @@ def nimi_või_parooli_muurmine(list_:list):
         muutuja=input("Uus nimi või parool: ")
         list_[indeks]=muutuja
     return list_
+def parooli_vahetus_kasutajal(list_: list):
+    """
+    Восстановление пароля пользователя.
+    """
+    kasutaja_nimi = input("Kasutajanime või parooli vahetus: ")
 
+    if kasutaja_nimi in list_:
+        indeks = list_.index(kasutaja_nimi)
+        uus_parool = input("Uus parool: ")
+        list_[indeks] = uus_parool
+        print("Parool on edukalt vahetatud.")
+    else:
+        print("Kasutajat ei leitud.")
+
+    return list_
 def loe_failist(fail:str)->list:
     """Funktsioon loeb tekst *.txt failist
     """
