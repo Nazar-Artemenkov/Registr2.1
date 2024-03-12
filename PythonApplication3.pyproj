@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>1cf28ea5-ac77-4f63-b092-fac5d652df2f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Aut_reg.py</StartupFile>
+    <StartupFile>Регистрация\Aut_reg.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,24 +21,26 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Aut_reg.py" />
-    <Compile Include="Funkcionid.py" />
-    <Compile Include="List.py" />
+    <Compile Include="Регистрация\Aut_reg.py" />
+    <Compile Include="Старое\Funkcionid.py" />
+    <Compile Include="Старое\List.py" />
     <Compile Include="..\MinaOmaModule.py">
-      <Link>MinaOmaModule.py</Link>
+      <Link>12.03\MinaOmaModule.py</Link>
     </Compile>
-    <Compile Include="Module.py" />
-    <Compile Include="module_registr.py" />
-    <Compile Include="module2.py" />
-    <Compile Include="Practika.py" />
-    <Compile Include="Praktik.py" />
-    <Compile Include="PythonApplication3.py" />
+    <Compile Include="Старое\Module.py" />
+    <Compile Include="Регистрация\module_registr.py" />
+    <Compile Include="12.03\module2.py" />
+    <Compile Include="Старое\Ygaday chislo.py" />
+    <Compile Include="12.03\Praktik.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Kasutajad.txt" />
-    <Content Include="Päevad.txt" />
-    <Content Include="salasõnad1.txt" />
-    <Content Include="text.txt" />
+    <Content Include="Регистрация\Kasutajad.txt" />
+    <Content Include="Регистрация\salasõnad1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="12.03\" />
+    <Folder Include="Старое\" />
+    <Folder Include="Регистрация\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

@@ -40,32 +40,35 @@ def registreerimine(kasutajad:list,paroolid:list)->any:
         else:
             print("Selline kasutaja on juba olemas!")
     return kasutajad, paroolid
-def autoriseerimine(kasutajad:list, paroolid:list):
-    """Funktsioon kuvab ekranile "Tere tulemast!" kui kasutaja on olemas nimekirjas
-    nimi on järjendis kasutajad
-    Salasõna on paroolide jarendis
-    nimi ja salasõna indeksid on võrsed
-    :param list kasutajad
-    :param list paroolid 
+def autoriseerimine(kasutajad:list,paroolid:list):
+    """Funktsioon kuvab ekraanile "Tere tulemast!" kui kasutaja on olemas nimekirjas
+        Nimi on järjendis kasutajad
+        Salasõna on paroolide järjendis
+        Nimi ja salasõna indeksid on võrdsed
+    :param list kasutajad:...
+    :param list paroolid:...
     """
     p=0
     while True:
-        nimi=input("Sisesta kasutajanimi: ")
-        parool=input("Sisesta salasõna: ")
-        p+=1
-        if nimi in kasutajad and parool in paroolid:
-            if kasutajad.index(nimi)==kasutajad.index(parool):
-                print(f"Tere tulemast! {nimi}")
-            else:
-                print("Vale nimi või salasõna!")
-                if p==5:
-                    print("Proovi uuesti 10 sek pärast")
-                    for i in range(10):
-                       sleep(10)
-                       print(f"On jäänud {10-i} sek")
+        nimi=input("Sisesta kasutajanimi: ")              
+        if nimi in kasutajad:            
+            while True:
+                parool=input("Sisesta salasõna: ")
+                p+=1
+                try:
+                    if kasutajad.index(nimi)==paroolid.index(parool):
+                        print(f"Tere tulemast! {nimi}")
+                        break                   
+                except:
+                    print("Vale nimi või salasõna!")
+                    if p==5: 
+                        print("Proovi uuesti 10 sek pärast")
+                        for i in range(10):
+                            sleep(1)
+                            print(f"On jäänud {10-i} sek")
         else:
-            print("Kasutajad pole")
-def nime_või_parooli_muutmine(list_:list):
+            print("Kasutajat pole")
+def nimi_või_parooli_muurmine(list_:list):
     """
     """
     muutuja=input("Vana nimi või parool: ")
@@ -76,22 +79,22 @@ def nime_või_parooli_muutmine(list_:list):
     return list_
 
 def loe_failist(fail:str)->list:
-    """Funktsion loeb tekst *.txt failist
+    """Funktsioon loeb tekst *.txt failist
     """
-    f=open(fail,'r', encoding="utf-8")
+    f=open(fail,'r',encoding="utf-8")
     järjend=[]
     for rida in f:
         järjend.append(rida.strip())
     f.close()
     return järjend
-def kirjuta_failise(fail:str, järend=[]):
-    """Salvestame tekst failise
+def kirjuta_failisse(fail:str,järjend=[]):
+    """Salvestame tekst failisse
     """
     n=int(input("Mitu: "))
     for i in range(n):
-        järend.append(input(f"{i+1}. sõna: "))
-    f=open(fail, 'a',encoding="utf-8")
-    for element in järend:
+        järjend.append(input(f"{i+1}. sõna: "))
+    f=open(fail,'a',encoding="utf-8")
+    for element in järjend:
         f.write(element+"\n")
     f.close()
 def ümber_kirjuta_fail(fail:str):
